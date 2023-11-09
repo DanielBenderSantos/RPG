@@ -31,6 +31,9 @@
             android:name=".view.PassivasActivity"
             android:exported="false"/>
         <activity
+            android:name=".view.EditPassivaActivity"
+            android:exported="false"/>
+        <activity
             android:name=".view.SplashActivity"
             android:exported="true">
             <intent-filter>

@@ -11,6 +11,7 @@ import java.util.List;
 
 import devandroid.bender.rpg.model.Habilidade;
 import devandroid.bender.rpg.model.Item;
+import devandroid.bender.rpg.model.Passiva;
 
 public class RpgDB extends SQLiteOpenHelper {
 
@@ -40,6 +41,15 @@ public class RpgDB extends SQLiteOpenHelper {
                 "descricao TEXT)";
 
         db.execSQL(sqlTabelaHabilidades);
+
+        //PASSIVAS
+        String sqlTabelaPassivas = "CREATE TABLE Passivas (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, " +
+                "descricao TEXT)";
+
+        db.execSQL(sqlTabelaPassivas);
+
+
 
     }
 
@@ -113,6 +123,33 @@ public class RpgDB extends SQLiteOpenHelper {
                 registro.setDescricao(cursor.getString(3));
 
 
+                lista.add(registro);
+
+            }while(cursor.moveToNext());
+        }else{
+
+        }
+
+        return lista;
+    }
+
+    //LISTAR PASSIVAS
+    public List<Passiva> listarDadosPassiva(){
+        List<Passiva> lista = new ArrayList<>();
+
+        Passiva registro;
+
+        String querySQL = "SELECT * FROM Passivas";
+
+        cursor = db.rawQuery(querySQL,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                registro = new Passiva();
+
+                registro.setId(cursor.getInt(0));
+                registro.setNome(cursor.getString(1));
+                registro.setDescricao(cursor.getString(2));
                 lista.add(registro);
 
             }while(cursor.moveToNext());
