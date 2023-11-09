@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import devandroid.bender.rpg.model.Habilidade;
 import devandroid.bender.rpg.model.Item;
 
 public class RpgDB extends SQLiteOpenHelper {
@@ -25,12 +26,20 @@ public class RpgDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sqlTabelaCombustivel = "CREATE TABLE Itens (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        //ITENS
+        String sqlTabelaItens = "CREATE TABLE Itens (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "nome TEXT, " +
                 "quantidade REAL, "+
                 "descricao TEXT)";
 
-        db.execSQL(sqlTabelaCombustivel);
+        db.execSQL(sqlTabelaItens);
+        //HABILIDADES
+        String sqlTabelaHabilidades = "CREATE TABLE Habilidades (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, " +
+                "tempoDeRecarga REAL, "+
+                "descricao TEXT)";
+
+        db.execSQL(sqlTabelaHabilidades);
 
     }
 
@@ -43,7 +52,20 @@ public class RpgDB extends SQLiteOpenHelper {
         db.insert(tabela, null,dados);
     }
 
-    public List<Item> listarDados(){
+    public void alterarObejeto(String tabela, ContentValues dados ){
+        db.insert(tabela, null,dados);
+
+        int id = dados.getAsInteger("id");
+        db.update(tabela,dados,"id=?",
+                new String[]{Integer.toString(id)});
+    }
+    public void deletarObejeto(String tabela, int id ){
+
+        db.delete(tabela,"id=?",
+                new String[]{Integer.toString(id)});
+    }
+    //LISTAR ITENS
+    public List<Item> listarDadosItem(){
         List<Item> lista = new ArrayList<>();
 
         Item registro;
@@ -71,16 +93,33 @@ public class RpgDB extends SQLiteOpenHelper {
 
         return lista;
     }
-    public void alterarObejeto(String tabela, ContentValues dados ){
-        db.insert(tabela, null,dados);
+    //LISTAR HABILIDADES
+    public List<Habilidade> listarDadosHabilidades(){
+        List<Habilidade> lista = new ArrayList<>();
 
-        int id = dados.getAsInteger("id");
-        db.update(tabela,dados,"id=?",
-                new String[]{Integer.toString(id)});
-    }
-    public void deletarObejeto(String tabela, int id ){
+        Habilidade registro;
 
-        db.delete(tabela,"id=?",
-                new String[]{Integer.toString(id)});
+        String querySQL = "SELECT * FROM Habilidades";
+
+        cursor = db.rawQuery(querySQL,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                registro = new Habilidade();
+
+                registro.setId(cursor.getInt(0));
+                registro.setNome(cursor.getString(1));
+                registro.setTempoDeRegarga(cursor.getDouble(2));
+                registro.setDescricao(cursor.getString(3));
+
+
+                lista.add(registro);
+
+            }while(cursor.moveToNext());
+        }else{
+
+        }
+
+        return lista;
     }
 }

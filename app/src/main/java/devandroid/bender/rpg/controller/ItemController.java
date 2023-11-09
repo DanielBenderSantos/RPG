@@ -13,7 +13,7 @@ public class ItemController extends RpgDB{
     public ItemController(Context context) {
         super(context);
     }
-    //TODO o que faz ?
+
 
     public void salvar(Item item){
         ContentValues dados = new ContentValues();
@@ -25,7 +25,7 @@ public class ItemController extends RpgDB{
     }
 
     public List<Item> getListaDeDados(){
-        return listarDados();
+        return listarDadosItem();
     }
 
     public void alterar(Item item){
@@ -42,10 +42,6 @@ public class ItemController extends RpgDB{
         deletarObejeto("Itens",id);
     }
 
-/*    public void limpar(){
-//        dadosPreferences.clear();
-//        dadosPreferences.apply();
-       } */
-    //TODO: teste sem Preferences
+
 
 }
