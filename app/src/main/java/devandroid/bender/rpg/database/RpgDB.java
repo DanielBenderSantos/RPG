@@ -10,6 +10,7 @@ import java.util.List;
 import devandroid.bender.rpg.model.Habilidade;
 import devandroid.bender.rpg.model.Item;
 import devandroid.bender.rpg.model.Passiva;
+import devandroid.bender.rpg.model.Status;
 
 public class RpgDB extends SQLiteOpenHelper {
     private static final String DB_NAME = "Rpg.db";
@@ -42,6 +43,19 @@ public class RpgDB extends SQLiteOpenHelper {
                 "nome TEXT, " +
                 "descricao TEXT)";
         db.execSQL(sqlTabelaPassivas);
+
+        //Status
+        String sqlTabelaStatus = "CREATE TABLE Status (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, " +
+                "vida REAL, "+
+                "raca TEXT, "+
+                "historia TEXT)";
+        db.execSQL(sqlTabelaStatus);
+
+        //StatusPadrao
+        String sqlTabelaStatusPadrao = "INSERT INTO Status (id, nome , vida , raca , historia ) values" +
+                "(1,'Nome',100,'Raça','Historia')";
+        db.execSQL(sqlTabelaStatusPadrao);
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
@@ -108,6 +122,26 @@ public class RpgDB extends SQLiteOpenHelper {
                 registro.setId(cursor.getInt(0));
                 registro.setNome(cursor.getString(1));
                 registro.setDescricao(cursor.getString(2));
+                lista.add(registro);
+            }while(cursor.moveToNext());
+        }
+        return lista;
+    }
+
+    //LISTAR Status
+    public List<Status> listarDadosStatus(){
+        List<Status> lista = new ArrayList<>();
+        Status registro;
+        String querySQL = "SELECT * FROM Status";
+        cursor = db.rawQuery(querySQL,null);
+        if(cursor.moveToFirst()){
+            do{
+                registro = new Status();
+                registro.setId(cursor.getInt(0));
+                registro.setNome(cursor.getString(1));
+                registro.setVida(cursor.getInt(2));
+                registro.setRaca(cursor.getString(3));
+                registro.setHistoria(cursor.getString(4));
                 lista.add(registro);
             }while(cursor.moveToNext());
         }
