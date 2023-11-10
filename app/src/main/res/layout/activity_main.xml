@@ -5,9 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
-
-
-
     <Button
         android:id="@+id/btnItens"
         android:layout_width="match_parent"
@@ -17,7 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnHabilidades"
         android:layout_width="match_parent"
@@ -28,7 +24,6 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnItens" />
-
     <Button
         android:id="@+id/btnPassivas"
         android:layout_width="match_parent"
@@ -39,7 +34,6 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnHabilidades" />
-
     <Button
         android:id="@+id/btnStatus"
         android:layout_width="match_parent"
@@ -50,7 +44,6 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPassivas" />
-
     <Button
         android:id="@+id/btnFinalizar"
         android:layout_width="match_parent"
@@ -61,5 +54,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

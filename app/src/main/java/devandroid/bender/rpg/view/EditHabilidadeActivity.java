@@ -7,54 +7,41 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
-
 import devandroid.bender.rpg.R;
 import devandroid.bender.rpg.controller.HabilidadeController;
-import devandroid.bender.rpg.controller.ItemController;
 import devandroid.bender.rpg.model.Habilidade;
-import devandroid.bender.rpg.model.Item;
-
 public class EditHabilidadeActivity extends AppCompatActivity {
-
-
     HabilidadeController controller;
     Habilidade habilidade;
     EditText editNome;
     EditText editTempoDeRecarga;
     EditText editDescricao;
-    String nomeItem;
     Integer idEdit ;
     Integer idDelete;
-    String txEdit;
-    String validaQuantidade;
+    String validaTempoDeRecarga;
     Button btnSalvar;
     Button btnDeletar;
     Button btnVoltar;
     List<Habilidade> dados;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_habilidade);
-
+        // I recebe os dados passado pela tela anterior
         Intent it = getIntent();
         idEdit = it.getIntExtra("id_numero",0);
+        // F recebe os dados passado pela tela anterior
         controller = new HabilidadeController(EditHabilidadeActivity.this);
         dados = controller.getListaDeDados();
-
-
         editNome = findViewById(R.id.editNome);
         editTempoDeRecarga = findViewById(R.id.editTempoDeRecarga);
         editDescricao = findViewById(R.id.editDescricao);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnDeletar = findViewById(R.id.btnDeletar);
         btnVoltar = findViewById(R.id.btnVoltar);
-
         if( idEdit != -1) {
             editNome.setText(dados.get(idEdit).getNome());
             editTempoDeRecarga.setText("" + dados.get(idEdit).getTempoDeRegarga());
@@ -65,29 +52,18 @@ public class EditHabilidadeActivity extends AppCompatActivity {
         else {
             btnDeletar.setEnabled(false);
         }
-
-
-//Deletar manual
-        /*
-        controller.deletar(2);
-        */
-
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //TODO: Desabilitar o botão salvar
-
-                validaQuantidade = (editTempoDeRecarga.getText().toString());
-
-                if ( validaQuantidade.isEmpty() == false){
+                validaTempoDeRecarga = (editTempoDeRecarga.getText().toString());
+                if (!validaTempoDeRecarga.isEmpty()){
                     habilidade = new Habilidade();
-
                     habilidade.setNome(editNome.getText().toString());
                     habilidade.setTempoDeRegarga(Double.parseDouble(editTempoDeRecarga.getText().toString()));
                     habilidade.setDescricao(editDescricao.getText().toString());
-                    if (habilidade.getNome().isEmpty() == false){
-                            if (habilidade.getDescricao().isEmpty() == false){
+                    if (!habilidade.getNome().isEmpty()){
+                            if (!habilidade.getDescricao().isEmpty()){
                                 if (idEdit == -1){
                                     controller.salvar(habilidade);
                                     Toast.makeText(EditHabilidadeActivity.this, "Habilidade adicionada com sucesso", Toast.LENGTH_LONG).show();
@@ -105,30 +81,23 @@ public class EditHabilidadeActivity extends AppCompatActivity {
                             }
                             else{
                                 Toast.makeText(EditHabilidadeActivity.this, "Digite os dados Obrigatorios (Descrição)", Toast.LENGTH_LONG).show();
-
                             }
                     }
                     else{
                         Toast.makeText(EditHabilidadeActivity.this, "Digite os dados Obrigatorios (Nome)", Toast.LENGTH_LONG).show();
-
                     }
                 }
-
                 else {
                     Toast.makeText(EditHabilidadeActivity.this, "Digite os dados Obrigatorios (Tempo De Recarga)", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
-
-
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TelaPrincipal();
             }
         });
-
         btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,9 +106,7 @@ public class EditHabilidadeActivity extends AppCompatActivity {
                 TelaPrincipal();
             }
         });
-
     }
-
     private void TelaPrincipal() {
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -150,6 +117,4 @@ public class EditHabilidadeActivity extends AppCompatActivity {
             }
         },1);
     }
-
 }
-

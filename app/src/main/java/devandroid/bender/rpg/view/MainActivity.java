@@ -1,59 +1,44 @@
 package devandroid.bender.rpg.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import devandroid.bender.rpg.R;
-
 public class MainActivity extends AppCompatActivity {
-
     Button btnFinalizar;
     Button btnItens;
     Button btnHabilidades;
-
     Button btnPassivas;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btnItens = findViewById(R.id.btnItens);
         btnHabilidades = findViewById(R.id.btnHabilidades);
         btnPassivas = findViewById(R.id.btnPassivas);
-
         btnFinalizar = findViewById(R.id.btnFinalizar);
-
         btnItens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TelaItens();
             }
         });
-
         btnHabilidades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TelaHabilidades();
             }
         });
-
         btnPassivas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TelaPassivas();
             }
         });
-
-
-
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
     private void TelaItens() {
         new Handler().postDelayed(new Runnable() {
@@ -73,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             }
         },1);
     }
-
     private void TelaHabilidades() {
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -84,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
             }
         },1);
     }
-
     private void TelaPassivas() {
         new Handler().postDelayed(new Runnable() {
             @Override

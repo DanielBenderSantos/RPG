@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.EditPassivaActivity"
     android:orientation="vertical">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <EditText
                 android:id="@+id/editNome"
                 android:layout_width="match_parent"
@@ -26,9 +23,6 @@
                 android:inputType="text"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
-
-
-
             <EditText
                 android:id="@+id/editDescricao"
                 android:layout_width="match_parent"
@@ -39,7 +33,6 @@
                 android:inputType="text"
                 app:layout_constraintTop_toBottomOf="@+id/editNome"
                 tools:layout_editor_absoluteX="0dp" />
-
             <Button
                 android:id="@+id/btnSalvar"
                 android:layout_width="match_parent"
@@ -50,7 +43,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
-
             <Button
                 android:id="@+id/btnDeletar"
                 android:layout_width="match_parent"
@@ -62,7 +54,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 android:enabled="false"/>
-
             <Button
                 android:id="@+id/btnVoltar"
                 android:layout_width="match_parent"
@@ -73,8 +64,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
-
         </LinearLayout>
-
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat >

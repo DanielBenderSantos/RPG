@@ -7,39 +7,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
-
 import devandroid.bender.rpg.R;
 import devandroid.bender.rpg.controller.ItemController;
 import devandroid.bender.rpg.model.Item;
-
 public class EditItemActivity extends AppCompatActivity {
-
-
     ItemController controller;
-
     Item item;
     EditText editNome;
-
     EditText editQuantidade;
     EditText editDescricao;
-
-    String nomeItem;
     Integer idEdit ;
     Integer idDelete;
-    String txEdit;
     String validaQuantidade;
-    
     Button btnSalvar;
     Button btnDeletar;
     Button btnVoltar;
-
     List<Item> dados;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +33,16 @@ public class EditItemActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         idEdit = it.getIntExtra("id_numero",0);
+        // I recebe os dados passado pela tela anterior
         controller = new ItemController(EditItemActivity.this);
         dados = controller.getListaDeDados();
-
-
+        // F recebe os dados passado pela tela anterior
         editNome = findViewById(R.id.editNome);
         editQuantidade = findViewById(R.id.editQuantidade);
         editDescricao = findViewById(R.id.editDescricao);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnDeletar = findViewById(R.id.btnDeletar);
         btnVoltar = findViewById(R.id.btnVoltar);
-
         if( idEdit != -1) {
             editNome.setText(dados.get(idEdit).getNome());
             editQuantidade.setText("" + dados.get(idEdit).getQuantidade());
@@ -68,29 +53,17 @@ public class EditItemActivity extends AppCompatActivity {
         else {
             btnDeletar.setEnabled(false);
         }
-
-
-//Deletar manual
-        /*
-        controller.deletar(2);
-        */
-
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //TODO: Desabilitar o botão salvar
-
                 validaQuantidade = (editQuantidade.getText().toString());
-
-                if ( validaQuantidade.isEmpty() == false){
+                if (!validaQuantidade.isEmpty()){
                     item = new Item();
-
                     item.setNome(editNome.getText().toString());
                     item.setQuantidade(Double.parseDouble(editQuantidade.getText().toString()));
                     item.setDescricao(editDescricao.getText().toString());
-                    if (item.getNome().isEmpty() == false){
-                            if (item.getDescricao().isEmpty() == false){
+                    if (!item.getNome().isEmpty()){
+                            if (!item.getDescricao().isEmpty()){
                                 if (idEdit == -1){
                                     controller.salvar(item);
                                     Toast.makeText(EditItemActivity.this, "Item adicionado com sucesso", Toast.LENGTH_LONG).show();
@@ -108,30 +81,23 @@ public class EditItemActivity extends AppCompatActivity {
                             }
                             else{
                                 Toast.makeText(EditItemActivity.this, "Digite os dados Obrigatorios (Descrição)", Toast.LENGTH_LONG).show();
-
                             }
                     }
                     else{
                         Toast.makeText(EditItemActivity.this, "Digite os dados Obrigatorios (Nome)", Toast.LENGTH_LONG).show();
-
                     }
                 }
-
                 else {
                     Toast.makeText(EditItemActivity.this, "Digite os dados Obrigatorios (Quantidade)", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
-
-
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TelaPrincipal();
             }
         });
-
         btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,9 +106,7 @@ public class EditItemActivity extends AppCompatActivity {
                 TelaPrincipal();
             }
         });
-
     }
-
     private void TelaPrincipal() {
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -153,6 +117,4 @@ public class EditItemActivity extends AppCompatActivity {
             }
         },1);
     }
-
 }
-
