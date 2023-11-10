@@ -33,6 +33,7 @@ public class RpgDB extends SQLiteOpenHelper {
         String sqlTabelaHabilidades = "CREATE TABLE Habilidades (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "nome TEXT, " +
                 "tempoDeRecarga REAL, "+
+                "disponivelEm REAL, "+
                 "descricao TEXT)";
         db.execSQL(sqlTabelaHabilidades);
 
@@ -87,7 +88,8 @@ public class RpgDB extends SQLiteOpenHelper {
                 registro.setId(cursor.getInt(0));
                 registro.setNome(cursor.getString(1));
                 registro.setTempoDeRegarga(cursor.getDouble(2));
-                registro.setDescricao(cursor.getString(3));
+                registro.setDisponivelEm(cursor.getDouble(3));
+                registro.setDescricao(cursor.getString(4));
                 lista.add(registro);
             }while(cursor.moveToNext());
         }

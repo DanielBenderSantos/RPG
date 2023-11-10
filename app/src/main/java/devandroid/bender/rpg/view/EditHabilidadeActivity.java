@@ -23,6 +23,7 @@ public class EditHabilidadeActivity extends AppCompatActivity {
     Integer idDelete;
     String validaTempoDeRecarga;
     Button btnSalvar;
+    Button btnUsar;
     Button btnDeletar;
     Button btnVoltar;
     List<Habilidade> dados;
@@ -40,6 +41,7 @@ public class EditHabilidadeActivity extends AppCompatActivity {
         editTempoDeRecarga = findViewById(R.id.editTempoDeRecarga);
         editDescricao = findViewById(R.id.editDescricao);
         btnSalvar = findViewById(R.id.btnSalvar);
+        btnUsar = findViewById(R.id.btnUsar);
         btnDeletar = findViewById(R.id.btnDeletar);
         btnVoltar = findViewById(R.id.btnVoltar);
         if( idEdit != -1) {
@@ -48,8 +50,10 @@ public class EditHabilidadeActivity extends AppCompatActivity {
             editDescricao.setText(dados.get(idEdit).getDescricao());
             btnDeletar.setEnabled(true);
             idDelete = dados.get(idEdit).getId();
-        }
-        else {
+            if (dados.get(idEdit).getDisponivelEm() == 0) {
+                btnUsar.setEnabled(true);
+            }
+        } else {
             btnDeletar.setEnabled(false);
         }
         btnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +94,18 @@ public class EditHabilidadeActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(EditHabilidadeActivity.this, "Digite os dados Obrigatorios (Tempo De Recarga)", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+        btnUsar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                habilidade = new Habilidade();
+                habilidade.setDisponivelEm(dados.get(idEdit).getTempoDeRegarga());
+                Habilidade objAlteracao = dados.get(idEdit);
+                objAlteracao.setDisponivelEm(habilidade.getDisponivelEm());
+                controller.alterar(objAlteracao);
+                Toast.makeText(EditHabilidadeActivity.this, "Habilidade Usada com sucesso", Toast.LENGTH_LONG).show();
+                TelaPrincipal();
             }
         });
         btnVoltar.setOnClickListener(new View.OnClickListener() {

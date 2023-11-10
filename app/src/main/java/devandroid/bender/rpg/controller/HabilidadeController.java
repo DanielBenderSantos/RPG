@@ -14,6 +14,7 @@ public class HabilidadeController extends RpgDB {
         ContentValues dados = new ContentValues();
         dados.put("nome", habilidade.getNome());
         dados.put("tempoDeRecarga", habilidade.getTempoDeRegarga());
+        dados.put("disponivelEm", 0);
         dados.put("descricao", habilidade.getDescricao());
         salvarObejeto("Habilidades",dados);
     }
@@ -25,6 +26,7 @@ public class HabilidadeController extends RpgDB {
         dados.put("id",Habilidade.getId());
         dados.put("nome", Habilidade.getNome());
         dados.put("tempoDeRecarga", Habilidade.getTempoDeRegarga());
+        dados.put("disponivelEm", Habilidade.getDisponivelEm());
         dados.put("descricao", Habilidade.getDescricao());
         alterarObejeto("Habilidades",dados);
     }

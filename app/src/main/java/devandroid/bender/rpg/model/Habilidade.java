@@ -4,6 +4,16 @@ public class Habilidade {
     private int id;
     private String nome;
     private double tempoDeRegarga;
+
+    public double getDisponivelEm() {
+        return disponivelEm;
+    }
+
+    public void setDisponivelEm(double disponivelEm) {
+        this.disponivelEm = disponivelEm;
+    }
+
+    private double disponivelEm;
     private String descricao;
     public int getId() {
         return id;

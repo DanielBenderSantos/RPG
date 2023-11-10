@@ -33,9 +33,10 @@ public class HabilidadesActivity extends AppCompatActivity {
         while (cont < dados.size() ){
             //adiciona um TextView com os dados do Banco de dados.
             TextView tv_dinamico = new TextView(HabilidadesActivity.this);
-            tv_dinamico.setText(String.format("%s ( %s ) \n %s \n\n",
+            tv_dinamico.setText(String.format("%s ( %s / %s ) \n %s \n\n",
                 dados.get(cont).getNome(),
                 dados.get(cont).getTempoDeRegarga(),
+                dados.get(cont).getDisponivelEm(),
                 dados.get(cont).getDescricao())
             );
             tv_dinamico.setTextSize(25);

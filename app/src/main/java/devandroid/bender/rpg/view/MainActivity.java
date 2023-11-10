@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnItens;
     Button btnHabilidades;
     Button btnPassivas;
+    Button btnStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnItens = findViewById(R.id.btnItens);
         btnHabilidades = findViewById(R.id.btnHabilidades);
         btnPassivas = findViewById(R.id.btnPassivas);
+        btnStatus = findViewById(R.id.btnStatus);
         btnFinalizar = findViewById(R.id.btnFinalizar);
         btnItens.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TelaPassivas();
+            }
+        });
+        btnStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TelaStatus();
             }
         });
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
@@ -76,5 +84,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         },1);
+    }   private void TelaStatus() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent telaPrincipal = new Intent(MainActivity.this,StatusActivity.class);
+                startActivity(telaPrincipal);
+                finish();
+            }
+        },1);
     }
+
 }
