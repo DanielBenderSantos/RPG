@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
+
+import devandroid.bender.rpg.model.Arma;
 import devandroid.bender.rpg.model.Habilidade;
 import devandroid.bender.rpg.model.Item;
 import devandroid.bender.rpg.model.Passiva;
@@ -56,6 +58,15 @@ public class RpgDB extends SQLiteOpenHelper {
         String sqlTabelaStatusPadrao = "INSERT INTO Status (id, nome , vida , raca , historia ) values" +
                 "(1,'Nome',100,'Raça','Historia')";
         db.execSQL(sqlTabelaStatusPadrao);
+
+        //Armas
+        String sqlTabelaArmas = "CREATE TABLE Armas (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, " +
+                "dano REAL, "+
+                "quantidadeDeMaos REAL, "+
+                "equipado REAL, "+
+                "descricao TEXT)";
+        db.execSQL(sqlTabelaArmas);
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
@@ -142,6 +153,26 @@ public class RpgDB extends SQLiteOpenHelper {
                 registro.setVida(cursor.getInt(2));
                 registro.setRaca(cursor.getString(3));
                 registro.setHistoria(cursor.getString(4));
+                lista.add(registro);
+            }while(cursor.moveToNext());
+        }
+        return lista;
+    }
+    //LISTAR Armas
+    public List<Arma> listarDadosArmas(){
+        List<Arma> lista = new ArrayList<>();
+        Arma registro;
+        String querySQL = "SELECT * FROM Armas";
+        cursor = db.rawQuery(querySQL,null);
+        if(cursor.moveToFirst()){
+            do{
+                registro = new Arma();
+                registro.setId(cursor.getInt(0));
+                registro.setNome(cursor.getString(1));
+                registro.setDano(cursor.getInt(2));
+                registro.setQuantidadeDeMaos(cursor.getInt(3));
+                registro.setEquipado(cursor.getInt(4));
+                registro.setDescricao(cursor.getString(5));
                 lista.add(registro);
             }while(cursor.moveToNext());
         }

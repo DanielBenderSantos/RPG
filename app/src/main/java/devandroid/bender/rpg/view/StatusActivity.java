@@ -5,32 +5,39 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 import devandroid.bender.rpg.R;
-//import devandroid.bender.rpg.controller.ItemController;
-//import devandroid.bender.rpg.model.Item;
+import devandroid.bender.rpg.controller.ArmaController;
 import devandroid.bender.rpg.controller.HabilidadeController;
 import devandroid.bender.rpg.controller.StatusController;
 import devandroid.bender.rpg.model.Habilidade;
+import devandroid.bender.rpg.model.Arma;
 import devandroid.bender.rpg.model.Status;
 
 
 public class StatusActivity extends AppCompatActivity {
     HabilidadeController controllerHabilidade;
     Habilidade habilidade;
+    ArmaController controllerArma;
+    Arma arma;
     StatusController controller;
     TextView editNome;
     TextView editVida;
     TextView editDano;
     TextView editDefesa;
     Button btnEditar;
+    Button btnArmas;
     Button btnVoltar;
     Button btnRound;
     Integer contH = 0;
+    Integer contA = 0;
+    Integer quantidadeDano = 0;
     Integer cont = 0;
     List<Habilidade> dadosHabilidade;
+    List<Arma> dadosArma;
     List<Status> dados;
 
     @Override
@@ -43,11 +50,15 @@ public class StatusActivity extends AppCompatActivity {
         editDano = findViewById(R.id.editDano);
         editDefesa = findViewById(R.id.editDefesa);
         btnEditar = findViewById(R.id.btnEditar);
+        btnArmas = findViewById(R.id.btnArmas);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnRound = findViewById(R.id.btnRound);
 
         controllerHabilidade = new HabilidadeController(StatusActivity.this);
         dadosHabilidade = controllerHabilidade.getListaDeDados();
+
+        controllerArma = new ArmaController(StatusActivity.this);
+        dadosArma = controllerArma.getListaDeDados();
 
         controller = new StatusController(StatusActivity.this);
         dados = controller.getListaDeDados();
@@ -57,10 +68,24 @@ public class StatusActivity extends AppCompatActivity {
             editVida.setText("Vida = " + dados.get(0).getVida());
         }
 
+
+        while (contA < dadosArma.size() ){
+            if(dadosArma.get(contA).getEquipado() == 1){
+                quantidadeDano = quantidadeDano + dadosArma.get(contA).getDano();
+            }
+            contA ++;
+        }
+        editDano.setText(String.format("Dano = " + quantidadeDano, 0.00));
         btnEditar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 EditarStatus();
+            }
+        });
+        btnArmas.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Armas();
             }
         });
         btnRound.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +116,16 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent telaPrincipal = new Intent(StatusActivity.this,MainActivity.class);
+                startActivity(telaPrincipal);
+                finish();
+            }
+        },1);
+    }
+    private void Armas() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent telaPrincipal = new Intent(StatusActivity.this,ArmasActivity.class);
                 startActivity(telaPrincipal);
                 finish();
             }

@@ -46,6 +46,8 @@
             </intent-filter>
         </activity>
         <activity android:name="devandroid.bender.rpg.view.EditStatusActivity" />
+        <activity android:name="devandroid.bender.rpg.view.ArmasActivity" />
+        <activity android:name="devandroid.bender.rpg.view.EditArmaActivity" />
     </application>
 
 </manifest>

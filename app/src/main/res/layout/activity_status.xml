@@ -51,7 +51,7 @@
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingRight="20dp"
-                    android:text="Dano = 000"
+                    android:text="Dano = "
                     android:textSize="24sp" />
 
                 <TextView
