@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import devandroid.bender.rpg.model.Arma;
+import devandroid.bender.rpg.model.Armadura;
 import devandroid.bender.rpg.model.Habilidade;
 import devandroid.bender.rpg.model.Item;
 import devandroid.bender.rpg.model.Passiva;
@@ -67,6 +68,14 @@ public class RpgDB extends SQLiteOpenHelper {
                 "equipado REAL, "+
                 "descricao TEXT)";
         db.execSQL(sqlTabelaArmas);
+
+        //Armaduras
+        String sqlTabelaArmaduras = "CREATE TABLE Armaduras (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, " +
+                "defesa REAL, "+
+                "equipado REAL, "+
+                "descricao TEXT)";
+        db.execSQL(sqlTabelaArmaduras);
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
@@ -173,6 +182,26 @@ public class RpgDB extends SQLiteOpenHelper {
                 registro.setQuantidadeDeMaos(cursor.getInt(3));
                 registro.setEquipado(cursor.getInt(4));
                 registro.setDescricao(cursor.getString(5));
+                lista.add(registro);
+            }while(cursor.moveToNext());
+        }
+        return lista;
+    }
+
+    //LISTAR Armaduras
+    public List<Armadura> listarDadosArmaduras(){
+        List<Armadura> lista = new ArrayList<>();
+        Armadura registro;
+        String querySQL = "SELECT * FROM Armaduras";
+        cursor = db.rawQuery(querySQL,null);
+        if(cursor.moveToFirst()){
+            do{
+                registro = new Armadura();
+                registro.setId(cursor.getInt(0));
+                registro.setNome(cursor.getString(1));
+                registro.setDefesa(cursor.getInt(2));
+                registro.setEquipado(cursor.getInt(3));
+                registro.setDescricao(cursor.getString(4));
                 lista.add(registro);
             }while(cursor.moveToNext());
         }

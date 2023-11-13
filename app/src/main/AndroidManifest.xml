@@ -48,6 +48,8 @@
         <activity android:name="devandroid.bender.rpg.view.EditStatusActivity" />
         <activity android:name="devandroid.bender.rpg.view.ArmasActivity" />
         <activity android:name="devandroid.bender.rpg.view.EditArmaActivity" />
+        <activity android:name="devandroid.bender.rpg.view.ArmadurasActivity" />
+        <activity android:name="devandroid.bender.rpg.view.EditArmaduraActivity" />
     </application>
 
 </manifest>
