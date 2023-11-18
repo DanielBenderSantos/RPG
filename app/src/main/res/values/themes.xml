@@ -3,7 +3,12 @@
     <style name="Base.Theme.RPG" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:textColorHint">@color/black</item> <!-- hint color -->
+
+
     </style>
+
 
     <style name="Theme.RPG" parent="Base.Theme.RPG" />
 </resources>

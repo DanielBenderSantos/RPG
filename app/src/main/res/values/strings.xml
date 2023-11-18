@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">RPG</string>
+    <string name="adicionar_arma">Adicionar Arma</string>
+    <string name="voltar">Voltar</string>
+    <string name="itens">Itens</string>
+    <string name="habilidades">Habilidades</string>
+    <string name="passiva">Passiva</string>
+    <string name="status">Status</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="adicionar_item">Adicionar Item</string>
+    <string name="nome">Nome</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="descricao">Descrição</string>
+    <string name="salvar">Salvar</string>
+    <string name="deletar">Deletar</string>
+    <string name="tempo_de_recarga">Tempo de Recarga</string>
+    <string name="usar">Usar</string>
+    <string name="adicionar_habilidade">Adicionar Habilidade</string>
+    <string name="adicionar_passiva">Adicionar Passiva</string>
+    <string name="vida_000">Vida = 000</string>
+    <string name="dano">Dano =</string>
+    <string name="defesa_000">Defesa = 000</string>
+    <string name="editar_status">Editar Status</string>
+    <string name="armas">Armas</string>
+    <string name="armaduras">Armaduras</string>
+    <string name="calcular_dano">Calcular Dano</string>
+    <string name="finalizar_round">Finalizar Round</string>
+    <string name="historia">Historia</string>
+    <string name="raca">Raça</string>
+    <string name="vida">Vida</string>
+    <string name="slots">Slots</string>
+    <string name="equipar_desequipar">Equipar / Desequipar</string>
+    <string name="defesa">Defesa</string>
 </resources>

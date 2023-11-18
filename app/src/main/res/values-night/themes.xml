@@ -2,6 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RPG" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<!--         <item name="colorPrimary">@color/purple_200</item> &lt;!&ndash; botoes  &ndash;&gt;-->
+<!--         <item name="colorPrimaryDark">@color/purple_500</item> &lt;!&ndash; botoes  e barrinha das horas&ndash;&gt;-->
+
+        <item name="android:textColorHint">@color/white</item> <!-- hint color -->
+<!--         <item name="android:textColor">#F662CADD</item> &lt;!&ndash; cor das listas de itens e adins &ndash;&gt;-->
+<!--         <item name="android:textAppearanceButton"> @color/purple_200</item> &lt;!&ndash; cor das listas de itens e adins &ndash;&gt;-->
+
     </style>
+
 </resources>

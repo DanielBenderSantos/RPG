@@ -7,7 +7,7 @@ import devandroid.bender.rpg.R;
 import androidx.appcompat.app.AppCompatActivity;
 import devandroid.bender.rpg.database.RpgDB;
 public class SplashActivity extends AppCompatActivity {
-    public static final int TIME_OUT_SPLASH = 3000; // 3000
+    public static final int TIME_OUT_SPLASH = 5000; // 3000
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

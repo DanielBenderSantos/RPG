@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.EditPassivaActivity"
-    android:orientation="vertical">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+    android:layout_height="wrap_content"
+    tools:context=".view.EditPassivaActivity">
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
             <EditText
                 android:id="@+id/editNome"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:ems="10"
-                android:hint="Nome"
+                android:hint="@string/nome"
                 android:inputType="text"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="0dp" />
+                android:autofillHints="Nome"/>
             <EditText
                 android:id="@+id/editDescricao"
-                android:layout_width="match_parent"
-                android:layout_height="121dp"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:ems="10"
-                android:hint="Descrição"
+                android:hint="@string/descricao"
                 android:inputType="text"
                 app:layout_constraintTop_toBottomOf="@+id/editNome"
-                tools:layout_editor_absoluteX="0dp" />
+                tools:layout_editor_absoluteX="0dp"
+                android:autofillHints=""/>
             <Button
                 android:id="@+id/btnSalvar"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                android:text="Salvar"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/salvar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
             <Button
                 android:id="@+id/btnDeletar"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                android:text="Deletar"
+                android:layout_marginBottom="50dp"
+                android:text="@string/deletar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -56,14 +60,13 @@
                 android:enabled="false"/>
             <Button
                 android:id="@+id/btnVoltar"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Voltar"
+                android:layout_marginBottom="50dp"
+                android:text="@string/voltar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-    </ScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat >
+</ScrollView>

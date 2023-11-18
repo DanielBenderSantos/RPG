@@ -1,68 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".view.StatusActivity"
-    android:orientation="vertical">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <LinearLayout
+    tools:context=".view.StatusActivity">
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <LinearLayout
                 android:id="@+id/listar_status"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/editNome"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:paddingTop="10dp"
-                    android:text="Nome"
-                    android:textSize="30dp" />
+                    android:text="@string/nome"
+                    android:textSize="30sp" />
                 <TextView
                     android:id="@+id/editVida"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingRight="20dp"
-                    android:text="Vida = 000"
+                    android:text="@string/vida_000"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/editDano"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingRight="20dp"
-                    android:text="Dano = "
+                    android:text="@string/dano"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/editDefesa"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingRight="20dp"
-                    android:paddingBottom="20dp"
-                    android:text="Defesa = 000"
+                    android:text="@string/defesa_000"
                     android:textSize="24sp" />
 
 
@@ -70,10 +63,11 @@
 
             <Button
                 android:id="@+id/btnEditar"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Editar Status"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/editar_status"
                 app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -82,10 +76,10 @@
 
             <Button
                 android:id="@+id/btnArmas"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Armas"
+                android:layout_marginBottom="50dp"
+                android:text="@string/armas"
                 app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -94,10 +88,10 @@
 
             <Button
                 android:id="@+id/btnArmaduras"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Armaduras"
+                android:layout_marginBottom="50dp"
+                android:text="@string/armaduras"
                 app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -106,10 +100,10 @@
 
             <Button
                 android:id="@+id/btnCalcularDano"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Calcular Dano"
+                android:layout_marginBottom="50dp"
+                android:text="@string/calcular_dano"
                 app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -118,10 +112,10 @@
 
             <Button
                 android:id="@+id/btnRound"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:text="Finalizar Round"
+                android:layout_marginBottom="50dp"
+                android:text="@string/finalizar_round"
                 app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -130,14 +124,13 @@
 
             <Button
                 android:id="@+id/btnVoltar"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                android:text="Voltar"
+                android:layout_marginBottom="50dp"
+                android:text="@string/voltar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-    </ScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

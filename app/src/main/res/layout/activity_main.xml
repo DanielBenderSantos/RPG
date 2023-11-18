@@ -1,68 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
         <Button
             android:id="@+id/btnItens"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="Itens"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/itens"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
         <Button
             android:id="@+id/btnHabilidades"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Habilidades"
+            android:layout_marginBottom="50dp"
+            android:text="@string/habilidades"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnItens" />
         <Button
             android:id="@+id/btnPassivas"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Passiva"
+            android:layout_marginBottom="50dp"
+            android:text="@string/passiva"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnHabilidades" />
         <Button
             android:id="@+id/btnStatus"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Status"
+            android:layout_marginBottom="50dp"
+            android:text="@string/status"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPassivas" />
 
-            <Button
-                android:id="@+id/btnFinalizar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:text="Finalizar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnFinalizar"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@string/finalizar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-    </ScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat >
+</ScrollView>
