@@ -44,7 +44,7 @@ public class ArmadurasActivity extends AppCompatActivity {
             else {
                 equipado = "Sim" ;
             }
-            tv_dinamico.setText(String.format(" Nome: %s \n Dano: %s \n Equipado: %s  \n Descrição: %s \n\n",
+            tv_dinamico.setText(String.format(" Nome: %s \n Defesa: %s \n Equipado: %s  \n Descrição: %s \n\n",
                 dados.get(cont).getNome(),
                 dados.get(cont).getDefesa(),
                 equipado,
@@ -61,7 +61,7 @@ public class ArmadurasActivity extends AppCompatActivity {
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditArma();
+                EditArmadura();
             }
         });
         btnVoltar.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,7 @@ public class ArmadurasActivity extends AppCompatActivity {
             }
         },1);
     }
-    private void EditArma() {
+    private void EditArmadura() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

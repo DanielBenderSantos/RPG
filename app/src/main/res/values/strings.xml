@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RPG</string>
     <string name="adicionar_arma">Adicionar Arma</string>
+    <string name="adicionar_armadura">Adicionar Armadura</string>
     <string name="voltar">Voltar</string>
     <string name="itens">Itens</string>
     <string name="habilidades">Habilidades</string>

@@ -91,6 +91,7 @@ public class EditArmaActivity extends AppCompatActivity {
                         Arma objAlteracao = dados.get(idEdit);
                         objAlteracao.setNome(arma.getNome());
                         objAlteracao.setDano(Integer.parseInt(editDano.getText().toString()));
+                        objAlteracao.setQuantidadeDeMaos(Integer.parseInt(editSlot.getText().toString()));
                         objAlteracao.setDescricao(arma.getDescricao());
                         controller.alterar(objAlteracao);
                         Toast.makeText(EditArmaActivity.this, "Arma editada com sucesso", Toast.LENGTH_LONG).show();

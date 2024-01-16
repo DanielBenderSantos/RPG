@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 import devandroid.bender.rpg.R;
@@ -115,7 +117,7 @@ public class StatusActivity extends AppCompatActivity {
         btnRound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FimRoud();
+                FimRound();
             }
         });
         btnVoltar.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +167,7 @@ public class StatusActivity extends AppCompatActivity {
         },1);
     }
 
-      private void FimRoud() {
+      private void FimRound() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -183,6 +185,8 @@ public class StatusActivity extends AppCompatActivity {
                 }
             }
         },1);
+          Toast.makeText(StatusActivity.this, "Round Finalizado", Toast.LENGTH_LONG).show();
+
     }
 
 }
