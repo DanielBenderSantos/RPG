@@ -55,7 +55,7 @@
                 android:paddingBottom="15dp"
                 android:ems="10"
                 android:hint="@string/historia"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 app:layout_constraintTop_toBottomOf="@+id/editRaca"
                 tools:layout_editor_absoluteX="0dp"
                 android:autofillHints=""/>
