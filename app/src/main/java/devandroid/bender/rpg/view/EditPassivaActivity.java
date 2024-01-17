@@ -94,6 +94,10 @@ public class EditPassivaActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        TelaPrincipal();
+    }
     private void TelaPrincipal() {
         new Handler().postDelayed(new Runnable() {
             @Override

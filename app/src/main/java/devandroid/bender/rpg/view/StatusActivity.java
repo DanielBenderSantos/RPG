@@ -127,6 +127,10 @@ public class StatusActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        TelaPrincipal();
+    }
     private void EditarStatus() {
         new Handler().postDelayed(new Runnable() {
             @Override
