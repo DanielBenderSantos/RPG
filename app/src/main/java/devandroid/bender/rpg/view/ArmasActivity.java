@@ -43,7 +43,7 @@ public class ArmasActivity extends AppCompatActivity {
             else {
                 equipado = "Sim" ;
             }
-            tv_dinamico.setText(String.format(" Nome: %s \n Defesa: %s  \n Slots: %s \n Equipado: %s  \n Descrição: %s \n\n",
+            tv_dinamico.setText(String.format(" Nome: %s \n Dano: %s  \n Slots: %s \n Equipado: %s  \n Descrição: %s \n\n",
                 dados.get(cont).getNome(),
                 dados.get(cont).getDano(),
                 dados.get(cont).getQuantidadeDeMaos(),

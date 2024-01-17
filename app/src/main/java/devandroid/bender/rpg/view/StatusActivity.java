@@ -156,7 +156,8 @@ public class StatusActivity extends AppCompatActivity {
                 finish();
             }
         },1);
-    } private void Armaduras() {
+    }
+    private void Armaduras() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -185,7 +186,7 @@ public class StatusActivity extends AppCompatActivity {
                 }
             }
         },1);
-          Toast.makeText(StatusActivity.this, "Round Finalizado", Toast.LENGTH_LONG).show();
+          Toast.makeText(StatusActivity.this, "Round Finalizado !", Toast.LENGTH_LONG).show();
 
     }
 
