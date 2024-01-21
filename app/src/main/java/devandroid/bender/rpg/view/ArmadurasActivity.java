@@ -19,6 +19,7 @@ import devandroid.bender.rpg.model.Armadura;
 
 public class ArmadurasActivity extends AppCompatActivity {
     LinearLayout listar_armaduras;
+
     ArmaduraController controller;
     Button btnAdicionar;
     Button btnVoltar;
